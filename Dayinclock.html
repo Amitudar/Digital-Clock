@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CLock.css">
+    <title>Clock attempt.</title>
+
+</head>
+<body onload="StartTime()">
+
+
+    
+    <h2>Digital Clock with javascript</h2>
+    <div id="demo"></div>
+    <div id="text"></div>
+    
+    
+    <script>
+
+const days = [ "Mon","Tues","Wednes","Thurs","Fri","Satur","Sun"];
+
+const d = new Date("2021-03-25");
+let day = days[d.getDay()];
+document.getElementById("text").innerHTML = day;
+
+// const d = new Date();
+// document.getElementById("demo").innerHTML = d;
+
+        function StartTime(){
+            
+            const today = new Date();
+            let d=today.getDay();
+            let h= today.getHours();
+            let m= today.getMinutes();
+            let s=today.getSeconds();
+            
+            h=checkTime(h);
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById("demo").innerHTML= h + ":" +m +":"+s ;
+            setTimeout(StartTime,1000);
+        }
+        function checkTime(i){
+            if(i<10)    { i="0" + i};  // add zero in front  of numbers <10
+        return i;
+        
+        }
+        
+
+    </script>
+</body>
+</html>
